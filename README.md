@@ -7,6 +7,6 @@ Cortical reorganization is a pivotal factor influencing neurological recovery in
 ## An overview of the analysis pipeline
 This flowchart outlines the step-by-step data analysis process for investigating cortical reorganization in individuals with chronic spinal cord injury (SCI). Beginning with the utilization of preprocessed fMRI data to construct brain networks, nodes representing different brain regions are interconnected (Figure 1A). A multi-layer community detection algorithm is then applied to uncover modular structures within these networks (Figure 1B). Subsequently, modularity-related metrics are computed to assess the strength of community divisions in the brain networks (Figure 1C). Co-occurrence matrices are generated to analyze node interactions across layers or participants (Figure 1D), while parcel-level module allegiance matrices are created to investigate community stability (Figure 1E). Finally, mesoscale network coefficients, including recruitment and integration, are calculated for comparing community structures between groups, offering insights into brain network organization and differences between the SCI and healthy control groups (Figure 1F).
 
-![alt text](https://github.com/fvfarahani/hyperaligned-brain-network/blob/main/Pipeline.png?raw=true)
+![alt text](https://github.com/fvfarahani/sci_graphtheory/blob/main/flowchart.png?raw=true)
 
 
