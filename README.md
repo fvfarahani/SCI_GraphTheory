@@ -1,2 +1,2 @@
-# SCI_GraphTheory
+# Brain Network Alterations in Chronic Spinal Cord Injury: Mesoscale Graph Analysis
 Welcome to the GitHub repository for the research project titled "Brain Network Alterations in Chronic Spinal Cord Injury: Mesoscale Graph Analysis." This repository contains code and resources related to our study, which explores cortical reorganization in individuals with spinal cord injury (SCI) using resting-state fMRI-based functional connectivity and mesoscale graph analysis.
