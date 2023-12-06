@@ -1,0 +1,10 @@
+# ignore all directories with the name test
+fig/
+sci_data/
+nilearn_cache/
+
+# ignores all .tz files
+.tar.tz
+
+# all files of type
+# *.md
