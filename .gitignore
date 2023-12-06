@@ -5,6 +5,7 @@ nilearn_cache/
 
 # ignores all .tz files
 .tar.tz
+.ipynb
 
 # all files of type
 # *.md
