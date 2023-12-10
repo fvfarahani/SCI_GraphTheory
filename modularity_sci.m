@@ -5,11 +5,11 @@ gamma = 1.2; % gamma = 0.5:0.1:1.5
 log_omega = -1; % log_omega = 0:-1:-4
 omega = power(10,log_omega);        
 
-% corr_g1 = permute(cell2mat(struct2cell(load('/Users/ismaila/Documents/C-Codes/SCI_GraphTheory/sci_data/SCI/fc/corr_hc.mat'))), [2 3 1]);
-% corr_g2 = permute(cell2mat(struct2cell(load('/Users/ismaila/Documents/C-Codes/SCI_GraphTheory/sci_data/SCI/fc/corr_sci.mat'))), [2 3 1]);
+corr_g1 = permute(cell2mat(struct2cell(load('/Users/ismaila/Documents/C-Codes/SCI_GraphTheory/sci_data/SCI/fc/corr_hc.mat'))), [2 3 1]);
+corr_g2 = permute(cell2mat(struct2cell(load('/Users/ismaila/Documents/C-Codes/SCI_GraphTheory/sci_data/SCI/fc/corr_sci.mat'))), [2 3 1]);
 
-corr_g1 = permute(cell2mat(struct2cell(load('/Users/ismaila/Documents/C-Codes/SCI_GraphTheory/sci_data/SCI/fc/corr_sci_c.mat'))), [2 3 1]);
-corr_g2 = permute(cell2mat(struct2cell(load('/Users/ismaila/Documents/C-Codes/SCI_GraphTheory/sci_data/SCI/fc/corr_sci_t.mat'))), [2 3 1]);
+% corr_g1 = permute(cell2mat(struct2cell(load('/Users/ismaila/Documents/C-Codes/SCI_GraphTheory/sci_data/SCI/fc/corr_sci_c.mat'))), [2 3 1]);
+% corr_g2 = permute(cell2mat(struct2cell(load('/Users/ismaila/Documents/C-Codes/SCI_GraphTheory/sci_data/SCI/fc/corr_sci_t.mat'))), [2 3 1]);
 
 % model settings 
 A_g1 = squeeze(num2cell(corr_g1,[1 2])); % adjacency/connectivity matrix
@@ -37,11 +37,17 @@ S_g2 = reshape(S_g2, N, T_g2);
 C_g2 = mode(S_g2,2); % consensus
 K_g2 = max(S_g2,[],'all'); % number of communities
 
+%       'moverandw': move the node under consideration to a community chosen
+%           at random from all moves that increase the qualilty where the
+%           probability of choosing a particular move is proportional to
+%           its increase in the quality function
+% https://github.com/GenLouvain/GenLouvain/blob/master/iterated_genlouvain.m
+
 cd '/Users/ismaila/Documents/C-Codes/SCI_GraphTheory/sci_data/SCI/modularity_var/';
 
-% filename = sprintf('S_hc_%.1f,%.1f.mat', gamma, log_omega); save(filename,'S_g1');
-% filename = sprintf('S_sci_%.1f,%.1f.mat', gamma, log_omega); save(filename,'S_g2');
+filename = sprintf('S_hc_%.1f,%.1f.mat', gamma, log_omega); save(filename,'S_g1');
+filename = sprintf('S_sci_%.1f,%.1f.mat', gamma, log_omega); save(filename,'S_g2');
 
-filename = sprintf('S_sci_c_%.1f,%.1f.mat', gamma, log_omega); save(filename,'S_g1');
-filename = sprintf('S_sci_t_%.1f,%.1f.mat', gamma, log_omega); save(filename,'S_g2');
+% filename = sprintf('S_sci_c_%.1f,%.1f.mat', gamma, log_omega); save(filename,'S_g1');
+% filename = sprintf('S_sci_t_%.1f,%.1f.mat', gamma, log_omega); save(filename,'S_g2');
 
