@@ -2,10 +2,10 @@
 fig/
 sci_data/
 nilearn_cache/
-
+.ipynb_checkpoints/
 # ignores all .tz files
 .tar.tz
-.ipynb_checkpoints/
+modularity_eval/
 
 # all files of type
 # *.md
