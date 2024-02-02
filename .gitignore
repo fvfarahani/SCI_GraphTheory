@@ -1,11 +1,16 @@
 # ignore all directories with the name test
 fig/
-sci_data/
-nilearn_cache/
-.ipynb_checkpoints/
-# ignores all .tz files
-.tar.tz
-modularity_eval/
+sci_data/ 
+nilearn_cache/ 
+.ipynb_checkpoints/ 
+# ignores all .tz files 
+.tar.tz 
+modularity_eval/ 
 
 # all files of type
 # *.md
+
+
+
+
+
