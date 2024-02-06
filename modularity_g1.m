@@ -1,7 +1,7 @@
 clear
 clc
 
-gamma = 1.16; %1.2 gamma = 0.5:0.1:1.5
+gamma = 1.3; %1.2 gamma = 0.5:0.1:1.5
 log_omega = -1; %-1 log_omega = 0:-1:-4
 omega = power(10,log_omega);        
 
