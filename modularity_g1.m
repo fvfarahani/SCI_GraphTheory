@@ -1,15 +1,17 @@
 clear
 clc
 
-gamma = 1.3; %1.2 gamma = 0.5:0.1:1.5
+gamma = 1.21; %1.2 gamma = 0.5:0.1:1.5
 log_omega = -1; %-1 log_omega = 0:-1:-4
-omega = power(10,log_omega);        
+omega = power(10,log_omega);
+% omega = 0.1;
 
 corr_g1 = permute(cell2mat(struct2cell(load('/Users/ismaila/Documents/C-Codes/SCI_GraphTheory/sci_data/SCI/fc/corr_hc.mat'))), [2 3 1]);
 corr_g2 = permute(cell2mat(struct2cell(load('/Users/ismaila/Documents/C-Codes/SCI_GraphTheory/sci_data/SCI/fc/corr_sci.mat'))), [2 3 1]);
 
 % corr_g1 = permute(cell2mat(struct2cell(load('/Users/ismaila/Documents/C-Codes/SCI_GraphTheory/sci_data/SCI/fc/corr_sci_c.mat'))), [2 3 1]);
 % corr_g2 = permute(cell2mat(struct2cell(load('/Users/ismaila/Documents/C-Codes/SCI_GraphTheory/sci_data/SCI/fc/corr_sci_t.mat'))), [2 3 1]);
+
 
 % model settings 
 A_g1 = squeeze(num2cell(corr_g1,[1 2])); % adjacency/connectivity matrix
@@ -24,7 +26,7 @@ T_g2 = size(corr_g2,3);
 % [B_g1, twom_g1] = multicatdir_f(A_g1,gamma,omega);
 PP_g1 = @(S_g1)postprocess_categorical_multilayer(S_g1,T_g1);
 % [S_g1,Q_g1] = iterated_genlouvain(B_g1,10000,0,1,'moverandw',[], PP_g1); % 4th entry(randord): 0[move] or 1[moverand] | 5th: move, moverand, or moverandw
-[S_g1, Q_g1] = iterated_genlouvain(B_g1, 10000, 0, 0, 'move', [], PP_g1);
+[S_g1, Q_g1] = iterated_genlouvain(B_g1, 10000, 0, 1, 'moverandw', [], PP_g1);
 Q_g1 = Q_g1/twom_g1; % Community Modularity
 % fprintf('Modularity Group 1: %d\n', Q_g1);
 S_g1 = reshape(S_g1,N,T_g1);
@@ -34,7 +36,7 @@ K_g1 = max(S_g1,[],'all'); % number of communities
 [B_g2,twom_g2] = multicat(A_g2,gamma,omega);
 PP_g2 = @(S_g2)postprocess_categorical_multilayer(S_g2,T_g2);
 % [S_g2,Q_g2] = iterated_genlouvain(B_g2,10000,0,1,'moverandw',[], PP_g2); % 4th entry(randord): 0[move] or 1[moverand] | 5th: move, moverand, or moverandw
-[S_g2, Q_g2] = iterated_genlouvain(B_g2, 10000, 0, 0, 'move', [], PP_g2);
+[S_g2, Q_g2] = iterated_genlouvain(B_g2, 10000, 0, 1, 'moverandw', [], PP_g2);
 Q_g2 = Q_g2/twom_g2; % Community Modularity
 % fprintf('Modularity Group 2: %d', Q_g2);
 S_g2 = reshape(S_g2, N, T_g2);

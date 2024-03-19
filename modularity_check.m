@@ -47,6 +47,9 @@ for x = 0.0:0.1:1.5
 
             m_g1(i) = Q_g1;
             m_g2(i) = Q_g2;
+            % S_g1_temp(i) = S_g1;
+            % S_g2_temp(i) = S_g2;
+
             
         end
 
@@ -69,6 +72,7 @@ end
 
 toc
 
+
 m_index_all = m_index.';
 fprintf('Modularity of hc & sci is %.4f\n', m_index_all);
 
@@ -76,6 +80,6 @@ fprintf('Modularity of hc & sci is %.4f\n', m_index_all);
 % m_g1_a = mode(m_g1)
 
 % Mod_all = [m_g1; m_g1]
-writematrix(m_index_all,'m_index_all.csv')
+% writematrix(m_index_all,'m_index_all.csv')
 
 fprintf('Done!\n');
